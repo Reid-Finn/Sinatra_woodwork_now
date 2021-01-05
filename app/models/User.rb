@@ -1,4 +1,4 @@
 class User < ActiveRecord::Base
-    has_many :plan
+    has_many :plans
 
 end

@@ -1,6 +1,6 @@
 class CreatePlans < ActiveRecord::Migration
   def change
-    create_table :plans do |t|
+    create_table :plan do |t|
       t.string :title
       t.text :instructions
       t.string :image
