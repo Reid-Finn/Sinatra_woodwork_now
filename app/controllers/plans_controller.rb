@@ -36,15 +36,15 @@ class PlansController < ApplicationController
     end
         #update
     patch '/plans/:id' do
-        plan = Plan.find(params[:id])
-        if !plan.title.empty? && !plan.instructions.empty?
-            plan.update
-            redirect '/plans'
+        @plan = Plan.find(params[:id])
+        if !params["plan"]["title"].empty? && !params["plan"]["instructions"].empty?
+            @plan.update(params["plan"])  
+            redirect "/plans/#{params[:id]}"
         else
             @error = "Invalid data. Please try again!"
             erb :'plans/edit'
         end
-        plan.update(title: params["title"], instructions: params["instructions"], image: params["image"])
+        
     end
 
     #delete
