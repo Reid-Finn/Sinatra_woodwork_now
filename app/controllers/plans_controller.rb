@@ -13,12 +13,14 @@ class PlansController < ApplicationController
 
     get '/plans' do
         @plans = Plan.all
-        
         erb :'plans/index'
     end
         #show
 
+
     get 'plans/:id' do
+        @plan = Plan.find(somethinghereidklol)
+        erb :'plans/show'
     end
 
     #update
