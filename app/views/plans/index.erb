@@ -1,1 +1,8 @@
-<%= @plans %>
+#index.erb
+<h1> Wood Working Plans </h2>
+
+<% @plans.each do |plan| %>
+    <h2><a href="/plans/<%= plan.id %>"><%= plan.title %></a></h2>
+    <p><%= plan.instructions %></p>
+    <img src="<%= plan.image %>" alt="plan">
+<% end %>
