@@ -1,0 +1,14 @@
+<h1>Create a Plan!</h1>
+
+<p><%= @error %></p>
+
+<form action="/plans" method="post">
+    <label>Plan Name</label>
+    <input type="text" name="title" >
+    <label>Instructions</label>
+    <input type="textarea" name="instructions">
+    <label>Image</label>
+    <input type="text" name="image">
+    <button type="submit">Add Plan</button>
+
+</form>
