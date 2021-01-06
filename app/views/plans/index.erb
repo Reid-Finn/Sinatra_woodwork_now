@@ -1,10 +1,13 @@
-#index.erb
+
 <h1> Wood Working Plans </h2>
 <a href="/plans/new">Create a new plan!</a>
 <% @plans.each do |plan| %>
     <h2><a href="/plans/<%= plan.id %>"><%= plan.title %></a></h2>
     <p><%= plan.instructions %></p>
-    <img src="<%= plan.image %>" 
+    <img src="<%= plan.image %>" alt="plan">
+    <% #Need to add if current user created this plan, then they may edit%>
+    <a href="/plans/<%= plan.id %>/edit">Edit Plan</a>
+    
 <% end %>
 
 

@@ -49,7 +49,10 @@ class PlansController < ApplicationController
 
     #delete
 
-    post '/plans/:id' do
+    delete '/plans/:id' do
+        plan = Plan.find(params[:id])
+        plan.destroy
+        redirect '/plans'
     end
 
 
