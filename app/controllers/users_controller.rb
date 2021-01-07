@@ -14,7 +14,7 @@ class UsersController < ApplicationController
                 redirect '/plans'
             else
                 @error = "invalid credentials"
-                erb :'/plans/signup'
+                erb :'/users/signup'
                 
             end
     end

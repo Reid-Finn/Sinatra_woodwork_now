@@ -6,6 +6,7 @@ class PlansController < ApplicationController
         #new
     get '/plans/new' do
        erb :'/plans/new'
+
     end
         #create
     post '/plans' do
