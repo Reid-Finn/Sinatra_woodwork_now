@@ -3,7 +3,11 @@ class PlansController < ApplicationController
     #create
         #new
     get '/plans/new' do
-        erb :'/plans/new'
+        if logged_in?
+            erb :'/plans/new'
+        else
+            redirect '/login'
+        end
     end
         #create
     post '/plans' do
@@ -19,13 +23,20 @@ class PlansController < ApplicationController
     #Read
         #index
     get '/plans' do
-        @plans = Plan.all.reverse
-        erb :'plans/index'
+        if logged_in?
+            @plans = Plan.all.reverse
+            erb :'plans/index'
+        else
+            redirect '/login'
+        end
     end
         #show
     get '/plans/:id' do
-        @plan = Plan.find(params[:id])
-        erb :'plans/show'
+        if logged_in?
+            @plan = Plan.find(params[:id])
+            erb :'plans/show'
+        else
+            redirect '/login'
     end
 
     #update
