@@ -4,4 +4,6 @@
 
 <form action="/plans/<%= @plan.id %>" method="post">
     <input type="hidden" name="_method" value="delete">
-    <button type="submit">Delete Plan</button>
+    <% if @plan.user == current_user %>
+        <button type="submit">Delete Plan</button>
+    <% end %>

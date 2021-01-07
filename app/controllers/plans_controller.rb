@@ -11,7 +11,7 @@ class PlansController < ApplicationController
     end
         #create
     post '/plans' do
-        plan = Plan.new(params)
+        plan = current_user.plans.build(params)
         if !plan.title.empty? && !plan.instructions.empty?
             plan.save
             redirect '/plans'
@@ -23,6 +23,7 @@ class PlansController < ApplicationController
     #Read
         #index
     get '/plans' do
+
         if logged_in?
             @plans = Plan.all.reverse
             erb :'plans/index'
