@@ -1,19 +1,16 @@
 class PlansController < ApplicationController
-
+    before do
+        require_login
+    end
     #create
         #new
     get '/plans/new' do
-        if logged_in?
-            erb :'/plans/new'
-        else
-            redirect '/login'
-        end
+       erb :'/plans/new'
     end
         #create
     post '/plans' do
         plan = current_user.plans.build(params)
-        if !plan.title.empty? && !plan.instructions.empty?
-            plan.save
+        if plan.save
             redirect '/plans'
         else
             @error = "Invalid data. Please try again!"
@@ -23,19 +20,13 @@ class PlansController < ApplicationController
     #Read
         #index
     get '/plans' do
-
-        if logged_in?
-            @plans = Plan.all.reverse
-            erb :'plans/index'
-        else
-        
-            redirect '/login'
-        end
+        @plans = Plan.all.reverse
+        erb :'plans/index'
     end
         #show
     get '/plans/:id' do
-        if logged_in?
-            @plan = Plan.find(params[:id])
+        @plan = Plan.find_by(id: params[:id])
+        if @plan
             erb :'/plans/show'
         else
             redirect '/login'
@@ -45,13 +36,9 @@ class PlansController < ApplicationController
     #update
         #edit
     get '/plans/:id/edit' do
-        if logged_in?
-            @plan = Plan.find(params[:id])
-            erb :'/plans/edit'
-        else
-            redirect '/login'
+        @plan = Plan.find(params[:id])
+        erb :'/plans/edit'
         end
-    end
         #update
     patch '/plans/:id' do
         @plan = Plan.find(params[:id])
