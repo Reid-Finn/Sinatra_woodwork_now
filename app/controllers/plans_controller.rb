@@ -11,7 +11,7 @@ class PlansController < ApplicationController
     end
         #create
     post '/plans' do
-        plan = Plan.create(params)
+        plan = Plan.new(params)
         if !plan.title.empty? && !plan.instructions.empty?
             plan.save
             redirect '/plans'
@@ -27,6 +27,7 @@ class PlansController < ApplicationController
             @plans = Plan.all.reverse
             erb :'plans/index'
         else
+        
             redirect '/login'
         end
     end
@@ -34,16 +35,21 @@ class PlansController < ApplicationController
     get '/plans/:id' do
         if logged_in?
             @plan = Plan.find(params[:id])
-            erb :'plans/show'
+            erb :'/plans/show'
         else
             redirect '/login'
+        end
     end
 
     #update
         #edit
     get '/plans/:id/edit' do
-        @plan = Plan.find(params[:id])
-        erb :'/plans/edit'
+        if logged_in?
+            @plan = Plan.find(params[:id])
+            erb :'/plans/edit'
+        else
+            redirect '/login'
+        end
     end
         #update
     patch '/plans/:id' do
