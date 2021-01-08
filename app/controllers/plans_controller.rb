@@ -25,6 +25,7 @@ class PlansController < ApplicationController
         erb :'plans/index'
     end
         #show
+            #specifically one plan
     get '/plans/:id' do
         @plan = Plan.find_by(id: params[:id])
         if @plan
@@ -34,12 +35,17 @@ class PlansController < ApplicationController
         end
     end
 
+
+    get '/plans/userplans' do
+        erb :'plans/userplan'
+    end  
+
     #update
         #edit
     get '/plans/:id/edit' do
         @plan = Plan.find(params[:id])
         erb :'/plans/edit'
-        end
+    end
         #update
     patch '/plans/:id' do
         @plan = Plan.find(params[:id])
