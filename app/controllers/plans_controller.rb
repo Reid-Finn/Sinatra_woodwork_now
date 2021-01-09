@@ -35,9 +35,16 @@ class PlansController < ApplicationController
         end
     end
 
-
-    get '/plans/userplans' do
-        erb :'/plans/userplans'
+        #Show users plans
+    get '/myplans' do
+        @userplans = []
+        Plan.all.each do |plan|
+            plan.user_id == params[:user_id]
+                @userplans << plan
+        end    
+        
+        binding.pry
+        erb :'/plans/myplans'
     end  
 
     #update
