@@ -1,6 +1,8 @@
 <p> <%= @error %> </p>
 <form action="/login" method="post">
+    <label for="username">Enter Username</label>
     <input type="text" name="username">
-    <input type="password" name="password">
+    <p><label for="password">Enter Password</label>
+    <input type="password" name="password"></p>
     <input type="submit" value="Sign in">
 </form>

@@ -1,3 +1,4 @@
+User.destroy_all
 Plan.destroy_all
 
 

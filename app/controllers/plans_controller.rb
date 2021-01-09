@@ -37,7 +37,7 @@ class PlansController < ApplicationController
 
 
     get '/plans/userplans' do
-        erb :'plans/userplan'
+        erb :'/plans/userplans'
     end  
 
     #update

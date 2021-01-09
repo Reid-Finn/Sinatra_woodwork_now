@@ -3,30 +3,45 @@
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-  <head>
+<head>
+  <style>
+    p.dotted {border-style: dotted;}
+    p.dashed {border-style: dashed;}
+    p.solid {border-style: solid;}
+    p.double {border-style: double;}
+    p.groove {border-style: groove;}
+    p.ridge {border-style: ridge;}
+    p.inset {border-style: inset;}
+    p.outset {border-style: outset;}
+    p.none {border-style: none;}
+    p.hidden {border-style: hidden;}
+    p.mix {border-style: dotted dashed solid double;}
+  </style>
     
 
-    <title>WoodworkingNow</title>
+    <title>WoodWorkNow</title>
 
     
   </head>
   <body>
     <div>
+          <div><a href="/">Home</a></div>
         <% if logged_in? %>
-          <div><a href="/plans">Plans</a></div>
+          <div><a href="/plans">Browse Plans</a></div>
           <div><a href='/logout'>Log Out</a></div>
+          <div><a href='/plans/userplans>'>Your Plans</a></div>
         <% else %>
           <div><a href='/signup'>Sign up</a></div>
           <div><a href='/login'>Log In</a></div>
         <% end %>
-          <div><a href="/">Home</a></div>
+        
     </div>
     <div class="wrapper">
 
         <%= yield %>
 
       <footer class="branding">
-        <small>&copy; 2021 <strong>WoodworkingNow</strong></small>
+        <small>&copy; 2021 <strong>WoodWorkNow</strong></small>
       </footer>
     </div>
 
