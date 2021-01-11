@@ -37,11 +37,7 @@ class PlansController < ApplicationController
 
         #Show users plans
     get '/myplans' do
-        @userplans = []
-        Plan.all.each do |plan|
-            plan.user_id == params[:user_id]
-                @userplans << plan
-        end    
+        @user = User.find_by(username: params[:username])
         
         binding.pry
         erb :'/plans/myplans'

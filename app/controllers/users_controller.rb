@@ -13,7 +13,7 @@ class UsersController < ApplicationController
                 session[:user_id] = user.id
                 redirect '/plans'
             else
-                @error = "invalid credentials"
+                @error = "Invalid credentials"
                 erb :'/users/signup'
                 
             end
