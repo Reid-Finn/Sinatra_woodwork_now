@@ -38,7 +38,6 @@ class PlansController < ApplicationController
         #Show users plans
     get '/myplans' do
         @user = User.find_by(username: params[:username])
-        
         binding.pry
         erb :'/plans/myplans'
     end  

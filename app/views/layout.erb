@@ -4,53 +4,89 @@
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-  <style>
-    p.dotted {border-style: dotted;}
-    p.dashed {border-style: dashed;}
-    p.solid {border-style: solid;}
-    p.double {border-style: double;}
-    p.groove {border-style: groove;}
-    p.ridge {border-style: ridge;}
-    p.inset {border-style: inset;}
-    p.outset {border-style: outset;}
-    p.none {border-style: none;}
-    p.hidden {border-style: hidden;}
-    p.mix {border-style: dotted dashed solid double;}
-  </style>
+ 
     
 
     <title>WoodWorkNow</title>
 
     
   </head>
-  <body>
+
+
+  <body> 
   <style>
-  img {
-  max-width: 100%;
-  height: auto;
+  body {
+  background-image: url("https://i.pinimg.com/originals/e2/30/f5/e230f59a5922574a0731061323b3a41d.jpg");
   }
+
+  h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 60px;
+    color: black;
+  
+
+ 
+}
+
+  h2 {
+    text-align: center;
+    font-weight: bold;
+    color: black;
+  }
+
+  h3{
+
+  }
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+  
+.nav {
+  text-align: center;
+  border: 10px ridge rgb(122, 121, 125);
+  padding: 1rem;
+  background-color: rgb(122, 121, 125);
+  
+  
+}
   </style>
-    <div>
-          <div><a href="/">Home</a></div>
+    <div class="nav"> 
+ 
+          <button style= 'margin-right:16px'><a href="/">Home</a></button>
         <% if logged_in? %>
-          <div><a href="/plans">Browse Plans</a></div>
-          <div><a href='/myplans'>Your Plans</a></div>
-          <div><a href='/logout'>Log Out</a></div>
+          <button style= 'margin-right:16px'><a href="/plans">Browse Plans</a></button>
+          <button style= 'margin-right:16px'><a href='/myplans'>Your Plans</a></button>
+          <button style= 'margin-right:16px'><a href='/logout'>Log Out</a></button>
           
         <% else %>
-          <div><a href='/signup'>Sign up</a></div>
-          <div><a href='/login'>Log In</a></div>
+          <button style= 'margin-right:16px'><a href='/signup'>Sign up</a></button>
+          &nbsp;
+          <button style= 'margin-right:16px'><a href='/login'>Log In</a></button>
         <% end %>
         
     </div>
-    <div class="wrapper">
+   
 
         <%= yield %>
 
+
+
+      
+      
+      
+      
       <footer class="branding">
         <small>&copy; 2021 <strong>WoodWorkNow</strong></small>
       </footer>
-    </div>
+    
+    
+  
+    
 
     
   </body>

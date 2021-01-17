@@ -1,21 +1,27 @@
 <style>
   img {
-  max-width: 500px;
-  height: 500px;
+  max-width: 200px;
+  height: 200px;
   }
-  </style>
+
+  p{
+    color: black;
+    font-size: 20px;
+  }
+</style>
 
 
 
 <h1> Wood Working Plans </h2>
-<a href="/plans/new">Create a new plan!</a>
+<h2 class="center"><a href="/plans/new">Create a new plan!</a></h2>
 <% @plans.each do |plan| %>
-    <h2><a href="/plans/<%= plan.id %>"><%= plan.title %></a></h2>
+    <h3 class="center"><a href="/plans/<%= plan.id %>"><%= plan.title %></a></h3>
     <p><%= plan.instructions %></p>
-    <img src="<%= plan.image %>">
+    <img src="<%= plan.image %>" class="center">
     <% if current_user == plan.user %>
         <a href="/plans/<%= plan.id %>/edit">Edit Plan</a>
     <% end %>
 <% end %>
+
 
 
